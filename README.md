@@ -1,4 +1,4 @@
-# @jupiter-xyz/easy-swap
+# jupiter-easy-swap
 
 A comprehensive TypeScript/Node.js SDK and CLI for seamless Solana DeFi trading, automation, and analytics using Jupiter APIs.
 
@@ -14,7 +14,7 @@ A comprehensive TypeScript/Node.js SDK and CLI for seamless Solana DeFi trading,
 
 ## Installation
 ```bash
-npm install @jupiter-xyz/easy-swap
+npm install jupiter-easy-swap
 ```
 
 ## Quick Start
@@ -112,7 +112,7 @@ console.log('Recent trades:', history.trades);
 
 ### Installation
 ```bash
-npm install -g @jupiter-xyz/easy-swap
+npm install -g jupiter-easy-swap
 ```
 
 ### Basic Commands
