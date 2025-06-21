@@ -95,7 +95,7 @@ await jupiter.setTrigger({
 });
 ```
 
-#### Portfolio Analytics
+#### Portfolio Analytics.
 ```ts
 const portfolio = await jupiter.getPortfolioSnapshot(wallet.publicKey);
 console.log('Portfolio value:', portfolio.totalValue);
@@ -120,16 +120,16 @@ npm install -g jupiter-easy-swap
 # Get a quote
 jupiter-swap quote --from SOL --to USDC --amount 1 --rpc-url https://api.mainnet-beta.solana.com
 
-# Execute a swap
+# Execute a swap.
 jupiter-swap swap --from SOL --to USDC --amount 1 --wallet ./keypair.json --rpc-url https://api.mainnet-beta.solana.com
 
-# Get route options
+# Get route options.
 jupiter-swap routes --from SOL --to USDC --amount 1 --rpc-url https://api.mainnet-beta.solana.com
 
-# Schedule recurring swap
+# Schedule recurring swap.
 jupiter-swap schedule --from USDC --to SOL --amount 10 --cron "0 9 * * 1" --wallet ./keypair.json --rpc-url https://api.mainnet-beta.solana.com
 
-# Check Jupiter health
+# Check Jupiter health.
 jupiter-swap health --rpc-url https://api.mainnet-beta.solana.com
 ```
 

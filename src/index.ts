@@ -1,4 +1,7 @@
 // Main exports
+//This file serves as the main entry point for the Defi-Galaxy package. 
+// It organizes and re-exports the core classes, types, errors, and utility functions from various internal modules, making them accessible to users of the package.
+
 export { JupiterClient } from './core/JupiterClient';
 export { JupiterSwapService } from './core/JupiterSwapService';
 export { JupiterTokenService } from './core/JupiterTokenService';
