@@ -1,5 +1,4 @@
-import { Connection, PublicKey, Transaction, Keypair, sendAndConfirmTransaction } from '@solana/web3.js';
-import { getAssociatedTokenAddress } from '@solana/spl-token';
+import { Connection, PublicKey, Transaction, Keypair } from '@solana/web3.js';
 import axios, { AxiosInstance } from 'axios';
 import { z } from 'zod';
 

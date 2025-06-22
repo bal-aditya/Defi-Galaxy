@@ -12,7 +12,10 @@
     "format": "prettier --write src/**/*.ts",
     "prepare": "npm run build",
     "cli": "node dist/cli/index.js",
-    "example": "tsx examples/usage.ts"
+    "example": "tsx examples/usage.ts",
+    "ui:dev": "vite",
+    "ui:build": "vite build",
+    "ui:preview": "vite preview"
   },
   "keywords": [
     "jupiter",
@@ -29,26 +32,46 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
+    "@jup-ag/terminal": "^4.4.1",
+    "@jup-ag/wallet-adapter": "^0.2.3",
     "@solana/spl-token": "^0.3.9",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.34",
+    "@solana/wallet-adapter-wallets": "^0.19.37",
     "@solana/web3.js": "^1.87.0",
+    "autoprefixer": "^10.4.14",
     "axios": "^1.6.0",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
     "jupiter-easy-swap": "^1.0.0",
+    "lucide-react": "^0.263.1",
     "node-cron": "^3.0.3",
     "ora": "^5.4.1",
+    "postcss": "^8.4.24",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "tailwindcss": "^3.3.0",
     "zod": "^3.22.0"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
     "@types/node": "^20.0.0",
     "@types/node-cron": "^3.0.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.0.0",
     "jest": "^29.0.0",
     "prettier": "^3.0.0",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
     "ts-jest": "^29.0.0",
     "tsx": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "util": "^0.12.5",
+    "vite": "^4.4.5"
   },
   "bin": {
     "jupiter-swap": "./dist/cli/index.js"

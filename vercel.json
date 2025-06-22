@@ -1,0 +1,31 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run ui:build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "devCommand": "npm run ui:dev",
+  "functions": {
+    "src/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+} 
