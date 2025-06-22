@@ -7,19 +7,10 @@ export default defineConfig({
   plugins: [react()],
   define: {
     global: 'globalThis',
-    'process.env': {},
-    process: {
-      env: {},
-      browser: true,
-      version: '',
-      platform: 'browser'
-    }
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      process: 'process/browser',
-      util: 'util',
     },
   },
   server: {
@@ -30,11 +21,12 @@ export default defineConfig({
     outDir: 'dist-ui',
     sourcemap: true,
     rollupOptions: {
-      external: [],
+      external: ['@noble/hashes'],
     },
   },
   optimizeDeps: {
     include: ['@jup-ag/terminal'],
+    exclude: ['@noble/hashes'],
     esbuildOptions: {
       define: {
         global: 'globalThis',
