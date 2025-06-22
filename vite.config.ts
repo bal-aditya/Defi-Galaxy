@@ -18,6 +18,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      process: 'process/browser',
+      util: 'util',
     },
   },
   server: {
@@ -27,8 +29,16 @@ export default defineConfig({
   build: {
     outDir: 'dist-ui',
     sourcemap: true,
+    rollupOptions: {
+      external: [],
+    },
   },
   optimizeDeps: {
-    include: ['@jup-ag/terminal']
+    include: ['@jup-ag/terminal'],
+    esbuildOptions: {
+      define: {
+        global: 'globalThis',
+      },
+    },
   }
 }) 
