@@ -15,7 +15,8 @@ import {
   Moon,
   ExternalLink,
   ArrowRightLeft,
-  Zap
+  Zap,
+  TrendingUp
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -26,6 +27,7 @@ const navigation = [
   { name: 'Portfolio', href: '/portfolio', icon: Wallet },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Automation', href: '/automation', icon: Zap },
+  { name: 'Yield Farming', href: '/yield-farming', icon: TrendingUp },
   { name: 'Settings', href: '/settings', icon: Settings },
 ]
 
