@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   define: {
     global: 'globalThis',
+    'process.env': {},
   },
   resolve: {
     alias: {
@@ -30,7 +31,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@jup-ag/terminal'],
+    include: ['@jup-ag/terminal', 'buffer'],
     exclude: ['@noble/hashes'],
     esbuildOptions: {
       define: {
