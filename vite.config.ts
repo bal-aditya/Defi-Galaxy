@@ -22,6 +22,13 @@ export default defineConfig({
     outDir: 'dist-ui',
     sourcemap: false,
     rollupOptions: {
+      external: (id) => {
+        // Exclude all Trezor-related packages that have syntax errors
+        return id.includes('@trezor/') || 
+               id.includes('trezor') || 
+               id.includes('@trezor/connect-common') ||
+               id.includes('@trezor/env-utils')
+      },
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
@@ -32,7 +39,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['@jup-ag/terminal', 'buffer'],
-    exclude: ['@noble/hashes'],
+    exclude: ['@noble/hashes', '@trezor/connect-common', '@trezor/env-utils'],
     esbuildOptions: {
       define: {
         global: 'globalThis',
