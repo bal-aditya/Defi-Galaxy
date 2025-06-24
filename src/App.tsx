@@ -1,3 +1,4 @@
+import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { HomePage } from './pages/HomePage'
@@ -8,6 +9,7 @@ import { AnalyticsPage } from './pages/AnalyticsPage'
 import { AutomationPage } from './pages/AutomationPage'
 import { SettingsPage } from './pages/SettingsPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { YieldFarmingPage } from './pages/YieldFarmingPage'
 import { ThemeProvider } from './contexts/ThemeContext'
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
           <Route path="portfolio" element={<PortfolioPage />} />
           <Route path="analytics" element={<AnalyticsPage />} />
           <Route path="automation" element={<AutomationPage />} />
+          <Route path="yield-farming" element={<YieldFarmingPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

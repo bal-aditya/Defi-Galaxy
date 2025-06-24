@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   define: {
     global: 'globalThis',
+    'process.env': {},
   },
   resolve: {
     alias: {
@@ -18,24 +19,27 @@ export default defineConfig({
     host: true,
   },
   build: {
-    outDir: 'dist',
-    sourcemap: true,
+    outDir: 'dist-ui',
+    sourcemap: false,
     rollupOptions: {
-      external: ['@noble/hashes'],
+      external: (id) => {
+        // Exclude all Trezor-related packages that have syntax errors
+        return id.includes('@trezor/') || 
+               id.includes('trezor') || 
+               id.includes('@trezor/connect-common') ||
+               id.includes('@trezor/env-utils')
+      },
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
           solana: ['@solana/web3.js', '@solana/wallet-adapter-react'],
-          jupiter: ['@jup-ag/terminal'],
-          ui: ['lucide-react'],
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
   },
   optimizeDeps: {
-    include: ['@jup-ag/terminal'],
-    exclude: ['@noble/hashes'],
+    include: ['@jup-ag/terminal', 'buffer'],
+    exclude: ['@noble/hashes', '@trezor/connect-common', '@trezor/env-utils'],
     esbuildOptions: {
       define: {
         global: 'globalThis',
