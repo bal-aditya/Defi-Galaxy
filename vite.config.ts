@@ -7,13 +7,6 @@ export default defineConfig({
   plugins: [react()],
   define: {
     global: 'globalThis',
-    'process.env': {},
-    process: {
-      env: {},
-      browser: true,
-      version: '',
-      platform: 'browser'
-    }
   },
   resolve: {
     alias: {
@@ -26,7 +19,15 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist-ui',
-    sourcemap: true,
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          solana: ['@solana/web3.js', '@solana/wallet-adapter-react'],
+        },
+      },
+    },
   },
   optimizeDeps: {
     include: ['@jup-ag/terminal']

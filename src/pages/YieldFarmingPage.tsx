@@ -243,19 +243,19 @@ Your farming position is now active! You can monitor your earnings in the dashbo
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
               <TrendingUp className="h-6 w-6 text-jupiter-primary" />
               Yield Farming
             </h1>
-            <p className="text-gray-600 mt-1">Maximize your DeFi returns with automated yield farming strategies</p>
+            <p className="text-gray-600 dark:text-gray-300 mt-1">Maximize your DeFi returns with automated yield farming strategies</p>
           </div>
           {!connected && (
             <div className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-yellow-500" />
-              <span className="text-sm text-gray-600">Connect wallet to start farming</span>
+              <span className="text-sm text-gray-600 dark:text-gray-300">Connect wallet to start farming</span>
               <WalletMultiButton />
             </div>
           )}
@@ -264,12 +264,12 @@ Your farming position is now active! You can monitor your earnings in the dashbo
 
       {/* Success Message */}
       {success && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
             <div className="flex-1">
-              <h3 className="text-sm font-medium text-green-800">Farming Strategy Started!</h3>
-              <div className="mt-2 text-sm text-green-700 whitespace-pre-line">{successMessage}</div>
+              <h3 className="text-sm font-medium text-green-800 dark:text-green-400">Farming Strategy Started!</h3>
+              <div className="mt-2 text-sm text-green-700 dark:text-green-300 whitespace-pre-line">{successMessage}</div>
             </div>
           </div>
         </div>
@@ -279,37 +279,37 @@ Your farming position is now active! You can monitor your earnings in the dashbo
         {/* Left Column - Strategy & Configuration */}
         <div className="lg:col-span-1 space-y-6">
           {/* Farming Strategy */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
               <BarChart3 className="h-5 w-5 text-jupiter-primary" />
               Farming Strategy
             </h2>
             
             {/* Strategy Selection */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Select Strategy</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Strategy</label>
               <div className="space-y-3">
                 {strategies.map((strategy) => (
                   <div
                     key={strategy.id}
                     className={`border rounded-lg p-4 cursor-pointer transition-all ${
                       selectedStrategy === strategy.id
-                        ? 'border-jupiter-primary bg-jupiter-primary/5'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-jupiter-primary bg-jupiter-primary/5 dark:bg-jupiter-primary/10'
+                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                     }`}
                     onClick={() => setSelectedStrategy(strategy.id)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="text-jupiter-primary">{strategy.icon}</div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900">{strategy.name}</h3>
-                        <p className="text-sm text-gray-600 mt-1">{strategy.description}</p>
+                        <h3 className="font-semibold text-gray-900 dark:text-white">{strategy.name}</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{strategy.description}</p>
                         <div className="flex items-center justify-between mt-2">
-                          <span className="text-green-600 font-semibold">{strategy.apy}% APY</span>
+                          <span className="text-green-600 dark:text-green-400 font-semibold">{strategy.apy}% APY</span>
                           <span className={`px-2 py-1 rounded text-xs font-medium ${
-                            strategy.risk === 'Low' ? 'bg-green-100 text-green-800' :
-                            strategy.risk === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-red-100 text-red-800'
+                            strategy.risk === 'Low' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400' :
+                            strategy.risk === 'Medium' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400' :
+                            'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400'
                           }`}>
                             {strategy.risk}
                           </span>
@@ -326,7 +326,7 @@ Your farming position is now active! You can monitor your earnings in the dashbo
                 {/* Configuration */}
                 <div className="space-y-4 mb-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Amount (USDC)
                     </label>
                     <input
@@ -335,16 +335,16 @@ Your farming position is now active! You can monitor your earnings in the dashbo
                       onChange={(e) => setAmount(Number(e.target.value))}
                       min={selectedStrategyData?.minAmount || 0}
                       max={selectedStrategyData?.maxAmount || 100000}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder="Enter amount"
                     />
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                       Min: ${selectedStrategyData?.minAmount} | Max: ${selectedStrategyData?.maxAmount}
                     </p>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Duration (days)
                     </label>
                     <input
@@ -353,7 +353,7 @@ Your farming position is now active! You can monitor your earnings in the dashbo
                       onChange={(e) => setDuration(Number(e.target.value))}
                       min={7}
                       max={365}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary"
+                      className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                     />
                   </div>
 
@@ -363,9 +363,9 @@ Your farming position is now active! You can monitor your earnings in the dashbo
                       id="autoCompound"
                       checked={autoCompound}
                       onChange={(e) => setAutoCompound(e.target.checked)}
-                      className="h-4 w-4 text-jupiter-primary focus:ring-jupiter-primary border-gray-300 rounded"
+                      className="h-4 w-4 text-jupiter-primary focus:ring-jupiter-primary border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-700"
                     />
-                    <label htmlFor="autoCompound" className="ml-2 block text-sm text-gray-700">
+                    <label htmlFor="autoCompound" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
                       Auto-compound rewards
                     </label>
                   </div>
@@ -373,18 +373,18 @@ Your farming position is now active! You can monitor your earnings in the dashbo
 
                 {/* Projected Earnings */}
                 {amount > 0 && (
-                  <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                    <h4 className="text-sm font-medium text-gray-700 mb-2">Projected Earnings</h4>
+                  <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 mb-4">
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Projected Earnings</h4>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Total Return:</span>
-                        <span className="font-semibold text-green-600">
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Total Return:</span>
+                        <span className="font-semibold text-green-600 dark:text-green-400">
                           ${calculateProjectedEarnings().toFixed(2)}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-sm text-gray-600">Final Amount:</span>
-                        <span className="font-semibold text-gray-900">
+                        <span className="text-sm text-gray-600 dark:text-gray-400">Final Amount:</span>
+                        <span className="font-semibold text-gray-900 dark:text-white">
                           ${(amount + calculateProjectedEarnings()).toFixed(2)}
                         </span>
                       </div>
@@ -396,7 +396,7 @@ Your farming position is now active! You can monitor your earnings in the dashbo
                 <button
                   onClick={handleStartFarming}
                   disabled={!connected || loading}
-                  className="w-full bg-jupiter-primary hover:bg-jupiter-primary/90 disabled:bg-gray-300 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-jupiter-primary hover:bg-jupiter-primary/90 disabled:bg-gray-300 dark:disabled:bg-gray-600 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <>
@@ -415,23 +415,23 @@ Your farming position is now active! You can monitor your earnings in the dashbo
           </div>
 
           {/* Quick Stats */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
               <Coins className="h-5 w-5 text-jupiter-primary" />
               Quick Stats
             </h3>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Total TVL:</span>
-                <span className="font-semibold text-gray-900">$10.2M</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Total TVL:</span>
+                <span className="font-semibold text-gray-900 dark:text-white">$10.2M</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Avg APY:</span>
-                <span className="font-semibold text-green-600">14.3%</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Avg APY:</span>
+                <span className="font-semibold text-green-600 dark:text-green-400">14.3%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Active Users:</span>
-                <span className="font-semibold text-gray-900">1,247</span>
+                <span className="text-sm text-gray-600 dark:text-gray-400">Active Users:</span>
+                <span className="font-semibold text-gray-900 dark:text-white">1,247</span>
               </div>
             </div>
           </div>
@@ -439,17 +439,17 @@ Your farming position is now active! You can monitor your earnings in the dashbo
 
         {/* Right Column - Opportunities */}
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">Yield Farming Opportunities</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Yield Farming Opportunities</h2>
             
             {/* Filters */}
             <div className="flex flex-col sm:flex-row gap-4 mb-6">
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Risk Level</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Risk Level</label>
                 <select
                   value={selectedRisk}
                   onChange={(e) => setSelectedRisk(e.target.value)}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 >
                   <option value="all">All Risks</option>
                   <option value="low">Low Risk</option>
@@ -459,11 +459,11 @@ Your farming position is now active! You can monitor your earnings in the dashbo
               </div>
               
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sort By</label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary"
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-jupiter-primary bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 >
                   <option value="apy">APY (High to Low)</option>
                   <option value="tvl">TVL (High to Low)</option>
@@ -475,16 +475,16 @@ Your farming position is now active! You can monitor your earnings in the dashbo
             {/* Opportunities Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filteredOpportunities.map((opportunity) => (
-                <div key={opportunity.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div key={opportunity.id} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow bg-white dark:bg-gray-800">
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900">{opportunity.name}</h3>
-                      <p className="text-sm text-gray-600">{opportunity.protocol}</p>
+                      <h3 className="font-semibold text-gray-900 dark:text-white">{opportunity.name}</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{opportunity.protocol}</p>
                     </div>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      opportunity.risk === 'low' ? 'bg-green-100 text-green-800' :
-                      opportunity.risk === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-red-100 text-red-800'
+                      opportunity.risk === 'low' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400' :
+                      opportunity.risk === 'medium' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400' :
+                      'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400'
                     }`}>
                       {opportunity.risk.toUpperCase()}
                     </span>
@@ -492,29 +492,29 @@ Your farming position is now active! You can monitor your earnings in the dashbo
                   
                   <div className="space-y-2 mb-3">
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">APY:</span>
-                      <span className="font-semibold text-green-600">{opportunity.apy}%</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400">APY:</span>
+                      <span className="font-semibold text-green-600 dark:text-green-400">{opportunity.apy}%</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">TVL:</span>
-                      <span className="font-medium text-gray-900">
+                      <span className="text-sm text-gray-600 dark:text-gray-400">TVL:</span>
+                      <span className="font-medium text-gray-900 dark:text-white">
                         ${(opportunity.tvl / 1000000).toFixed(1)}M
                       </span>
                     </div>
                   </div>
                   
                   <div className="mb-3">
-                    <p className="text-xs text-gray-600 mb-2">Tokens:</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Tokens:</p>
                     <div className="flex flex-wrap gap-1">
                       {opportunity.tokens.map((token, index) => (
-                        <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+                        <span key={index} className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 text-xs rounded">
                           {token}
                         </span>
                       ))}
                     </div>
                   </div>
                   
-                  <p className="text-sm text-gray-600 mb-3 line-clamp-2">{opportunity.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">{opportunity.description}</p>
                   
                   <button className="w-full bg-jupiter-primary hover:bg-jupiter-primary/90 text-white font-medium py-2 px-4 rounded transition-colors flex items-center justify-center gap-2">
                     <DollarSign className="h-4 w-4" />
@@ -527,7 +527,7 @@ Your farming position is now active! You can monitor your earnings in the dashbo
 
             {filteredOpportunities.length === 0 && (
               <div className="text-center py-8">
-                <p className="text-gray-600">No opportunities found with the selected filters</p>
+                <p className="text-gray-600 dark:text-gray-400">No opportunities found with the selected filters</p>
               </div>
             )}
           </div>

@@ -1,7 +1,7 @@
 {
   "framework": "vite",
   "buildCommand": "npm run ui:build",
-  "outputDirectory": "dist",
+  "outputDirectory": "dist-ui",
   "installCommand": "npm install",
   "devCommand": "npm run ui:dev",
   "functions": {
