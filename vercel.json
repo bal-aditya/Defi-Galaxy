@@ -3,10 +3,5 @@
   "buildCommand": "npm run ui:build",
   "outputDirectory": "dist-ui",
   "installCommand": "npm install",
-  "devCommand": "npm run ui:dev",
-  "build": {
-    "env": {
-      "VITE_OUTPUT_DIR": "dist"
-    }
-  }
+  "devCommand": "npm run ui:dev"
 } 
