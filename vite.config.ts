@@ -30,6 +30,12 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@jup-ag/terminal']
+    include: ['@jup-ag/terminal'],
+    exclude: ['@noble/hashes'],
+    esbuildOptions: {
+      define: {
+        global: 'globalThis',
+      },
+    },
   }
 }) 

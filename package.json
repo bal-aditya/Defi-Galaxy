@@ -14,7 +14,7 @@
     "cli": "node dist/cli/index.js",
     "example": "tsx examples/usage.ts",
     "ui:dev": "vite",
-    "ui:build": "vite build",
+    "ui:build": "vite build --outDir dist",
     "ui:preview": "vite preview"
   },
   "keywords": [

@@ -4,28 +4,9 @@
   "outputDirectory": "dist-ui",
   "installCommand": "npm install",
   "devCommand": "npm run ui:dev",
-  "functions": {
-    "src/**/*.ts": {
-      "runtime": "nodejs18.x"
+  "build": {
+    "env": {
+      "VITE_OUTPUT_DIR": "dist"
     }
-  },
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        }
-      ]
-    }
-  ]
+  }
 } 
