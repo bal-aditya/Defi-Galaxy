@@ -38,8 +38,8 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@jup-ag/terminal', 'buffer'],
-    exclude: ['@noble/hashes', '@trezor/connect-common', '@trezor/env-utils'],
+    include: ['@jup-ag/terminal', 'buffer', '@noble/hashes', '@noble/curves'],
+    exclude: ['@trezor/connect-common', '@trezor/env-utils'],
     esbuildOptions: {
       define: {
         global: 'globalThis',
