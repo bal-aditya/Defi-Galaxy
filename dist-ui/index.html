@@ -8,7 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-354fa13c.js"></script>
+    <script>
+      // Buffer polyfill - must be loaded before any other scripts
+      if (typeof window !== 'undefined' && !window.Buffer) {
+        window.global = window;
+        window.process = { env: {}, browser: true, version: '', versions: {} };
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-ab31be53.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-032311f1.js">
     <link rel="modulepreload" crossorigin href="/assets/solana-bb19d673.js">
     <link rel="stylesheet" href="/assets/index-343705f3.css">

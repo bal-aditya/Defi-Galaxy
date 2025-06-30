@@ -1,10 +1,5 @@
-import { Buffer } from 'buffer'
-
 // Polyfill Node.js globals for browser environment
 if (typeof window !== 'undefined') {
-  // Make Buffer available globally
-  ;(window as any).Buffer = Buffer
-  
   // Make global available
   ;(window as any).global = window
   
@@ -15,7 +10,17 @@ if (typeof window !== 'undefined') {
     version: '',
     versions: {}
   }
-  
-  // Make Buffer available on globalThis as well
-  ;(globalThis as any).Buffer = Buffer
-} 
+}
+
+// Import Buffer and make it available globally
+import { Buffer } from 'buffer'
+
+if (typeof window !== 'undefined') {
+  ;(window as any).Buffer = Buffer
+}
+
+if (typeof global !== 'undefined') {
+  ;(global as any).Buffer = Buffer
+}
+
+;(globalThis as any).Buffer = Buffer 
